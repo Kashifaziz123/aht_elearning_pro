@@ -1,0 +1,17 @@
+<odoo>
+    <record model="ir.ui.view" id="publish_button">
+        <field name="name">publish_button</field>
+        <field name="model">slide.slide</field>
+        <field name="inherit_id" ref="website_slides.view_slide_slide_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="before">
+                <div>
+                    <button name="state_published" type="object" class="oe_highlight" string="Publish"
+                    icon="fa-upload" attrs="{'invisible': [('is_published','=', True)]}"/>
+                    <button name="state_unpublished" type="object" class="oe_highlight" string="UnPublish"
+                    icon="fa-upload" attrs="{'invisible': [('is_published','=', False)]}"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
