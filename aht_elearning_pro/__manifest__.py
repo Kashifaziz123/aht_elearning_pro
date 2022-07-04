@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 {
-    'name' : 'AHT ELEARNING PRO',
+    'name' : 'E-learning Pro',
     'version' : '1.1',
-    'summary': 'AHT ELEARNING PRO',
+    'summary': 'E-learning Pro',
     'sequence': -10,
-    'description': """AHT ELEARNING PRO""",
-    'category': 'Accounting/Accounting',
-    'website': 'https://www.odoo.com/page/billing',
+    'description': """E-learning Pro""",
+    'category': 'Website/eLearning',
+    'author': "Alhaditech",
+    'website': "https://www.alhaditech.com/",
     'depends' : ['website_slides'],
     'data': [
              'views/publish_button.xml',
