@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 {
-    'name' : 'E-learning Pro',
+    'name' : 'elearning Pro',
     'version' : '1.1',
-    'summary': 'E-learning Pro',
+    'summary': 'elearning Pro',
     'sequence': -10,
-    'description': """E-learning Pro""",
+    'description': """elearning Pro""",
     'category': 'Website/eLearning',
     'author': "Alhaditech",
+    'price': 80, 'currency': 'USD',
     'website': "https://www.alhaditech.com/",
     'depends' : ['website_slides','virtual_meeting','slide_local_video'],
     'data': [
