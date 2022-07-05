@@ -13,7 +13,7 @@
     'data': [
              'views/publish_button.xml',
     ],
-    'images': ['static/description/cover_image.png'],
+    'images': ['static/description/cover_image.jpeg'],
     'demo': [],
     'qweb': [],
     'installable': True,
