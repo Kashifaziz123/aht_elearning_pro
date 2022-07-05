@@ -7,7 +7,7 @@
     'description': """elearning Pro""",
     'category': 'Website/eLearning',
     'author': "Alhaditech",
-    'price': 80, 'currency': 'USD',
+    'price': 120, 'currency': 'USD',
     'website': "https://www.alhaditech.com/",
     'depends' : ['website_slides','virtual_meeting','slide_local_video'],
     'data': [
