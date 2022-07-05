@@ -8,7 +8,7 @@
     'category': 'Website/eLearning',
     'author': "Alhaditech",
     'website': "https://www.alhaditech.com/",
-    'depends' : ['website_slides'],
+    'depends' : ['website_slides','virtual_meeting','slide_local_video'],
     'data': [
              'views/publish_button.xml',
     ],
