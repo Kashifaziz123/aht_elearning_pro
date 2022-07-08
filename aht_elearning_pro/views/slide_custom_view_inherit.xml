@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<record id="view_slide_channel_form_inherit" model="ir.ui.view">
+        <field name="name">slide.slide.form.inherit.type</field>
+        <field name="model">slide.channel</field>
+        <field name="inherit_id" ref="website_slides.view_slide_channel_form"/>
+        <field name="arch" type="xml">
+            <field name="tag_ids" position="after">
+                <br/>
+                <label for="preview_video" invisible="1"/>
+                <field name="preview_video" invisible="1"/>
+                <label for="preview_video_url" />
+                <field name="preview_video_url"/>
+                <field name="computed_url" force_save="1" invisible="1"/>
+            </field>
+        </field>
+</record>
+</odoo>

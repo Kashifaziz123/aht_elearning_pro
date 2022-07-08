@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+<odoo><data>
+
+    <template id='course_main' inherit_id="website_slides.course_main">
+    <!-- Channel (training) main template: add link to forum -->
+
+          <xpath expr="//div[hasclass('container')]" position="replace">
+              <div class="container mt-5 mt-md-3 mt-xl-4">
+                    <div class="row align-items-end align-items-md-stretch">
+                        <!-- ==== Header Left ==== -->
+                        <div class="col-12 col-md-4 col-lg-3">
+                            <div class="d-flex align-items-end justify-content-around h-100">
+                                <div class="channel_video_preview" style="height:104% !important;" t-if="channel.computed_url" >
+                                        <iframe width="100%" height="100%"
+                                             t-attf-src="https://www.youtube.com/embed/{{channel.computed_url}}"
+
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="1s"/>
+                                </div>
+
+
+
+                                <div t-else="">
+                                <div t-if="channel.image_1920" t-field="channel.image_1920"
+                                     t-options='{"widget": "image", "class": "o_wslides_course_pict d-inline-block mb-2 mt-3 my-md-0"}'
+                                     class="h-100"/>
+                                    <div t-else="" class="h-100">
+                                        <img t-att-src="'/website_slides/static/src/img/channel-%s-default.jpg' % ('training' if channel.channel_type == 'training' else 'documentation')"
+                                             class="o_wslides_course_pict d-inline-block mb-2 mt-3 my-md-0"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ==== Header Right ==== -->
+                        <div class="col-12 col-md-8 col-lg-9 d-flex flex-column">
+                            <div class="d-flex flex-column">
+                                <h1 t-field="channel.name"/>
+                                <p class="mb-0 mb-xl-3" t-field="channel.description"/>
+
+                                <div t-if="channel.channel_type == 'documentation'" class="d-flex mb-md-5">
+                                    <button role="button" class="btn text-white pl-0" title="Share Channel"
+                                        aria-label="Share Channel"
+                                        data-toggle="modal" t-att-data-target="'#slideChannelShareModal_%s' % channel.id">
+                                        <i class="fa fa-share-square"></i> Share
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-column justify-content-center h5 flex-grow-1 mb-md-5" t-if="channel.allow_comment">
+                                <t t-call="portal_rating.rating_stars_static_popup_composer">
+                                    <t t-set="rating_avg" t-value="rating_avg"/>
+                                    <t t-set="rating_total" t-value="rating_count"/>
+                                    <t t-set="object" t-value="channel"/>
+                                    <t t-set="token" t-value="channel.access_token"/>
+                                    <t t-set="hash" t-value="message_post_hash"/>
+                                    <t t-set="pid" t-value="message_post_pid"/>
+                                    <t t-set="default_message" t-value="last_message"/>
+                                    <t t-set="default_message_id" t-value="last_message_id"/>
+                                    <t t-set="default_rating_value" t-value="last_rating_value"/>
+                                    <t t-set="default_attachment_ids" t-value="last_message_attachment_ids"/>
+                                    <t t-set="force_submit_url" t-value="'/slides/mail/update_comment' if last_message_id else False"/>
+                                    <t t-set="disable_composer" t-value="not channel.can_review"/>
+                                    <t t-set="_link_btn_classes" t-value="'btn-link text-white'"/>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </xpath>
+    </template>
+</data>
+</odoo>
+
