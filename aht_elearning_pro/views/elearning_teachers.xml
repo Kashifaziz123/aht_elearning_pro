@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="elearning_teachers">
+        <head>
+            <meta charset="UTF-8"/>
+            <title>Become a teacher</title>
+            <link rel="stylesheet" href="aht_elearning_pro/static/src/css/teachers_registration.css"/>
+            <link href="aht_elearning_pro/static/src/img/favicon.png" rel="icon"/>
+            <link href="aht_elearning_pro/static/src/img/apple-touch-icon.png" rel="apple-touch-icon"/>
+
+            <!-- Google Fonts -->
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+                  rel="stylesheet"/>
+
+            <!-- Vendor CSS Files -->
+            <link href="aht_elearning_pro/static/src/vendor/aos/aos.css" rel="stylesheet"/>
+            <link href="aht_elearning_pro/static/src/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+            <link href="aht_elearning_pro/static/src/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
+            <link href="aht_elearning_pro/static/src/vendor/boxicons/css/boxicons.min.css" rel="stylesheet"/>
+            <link href="aht_elearning_pro/static/src/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"/>
+            <link href="aht_elearning_pro/static/src/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"/>
+
+            <!-- Template Main CSS File -->
+            <link href="aht_elearning_pro/static/src/css/style.css" rel="stylesheet"/>
+        </head>
+
+        <body>
+            <header id="header" class="fixed-top d-flex align-items-center">
+                <div class="container d-flex align-items-center">
+
+                    <div class="logo me-auto">
+                        <h1>
+                            <a href="index.html">E-Learning Pro | AHT</a>
+                        </h1>
+                        <!-- Uncomment below if you prefer to use an image logo -->
+                        <!-- <a href="index.html"><img src="aht_elearning_pro/static/src/img/logo.png" alt="" class="img-fluid"></a>-->
+                    </div>
+
+
+                </div>
+            </header><!-- End Header -->
+
+            <!-- ======= Hero Section ======= -->
+            <section id="hero">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center"
+                             data-aos="fade-up">
+                            <div>
+                                <h1>Come teach with us</h1>
+                                <h2>Become an instructor and change lives — including your own</h2>
+                                <a href="#" id="contact" class="btn-get-started scrollto">Get Started</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+                            <img src="aht_elearning_pro/static/src/img/hero-img.png" class="img-fluid" alt=""/>
+                        </div>
+                    </div>
+                </div>
+
+            </section><!-- End Hero -->
+
+            <!-- Vendor JS Files -->
+            <script src="aht_elearning_pro/static/src/vendor/aos/aos.js"></script>
+            <script src="aht_elearning_pro/static/src/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script src="aht_elearning_pro/static/src/vendor/glightbox/js/glightbox.min.js"></script>
+            <script src="aht_elearning_pro/static/src/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+            <script src="aht_elearning_pro/static/src/vendor/swiper/swiper-bundle.min.js"></script>
+            <script src="aht_elearning_pro/static/src/vendor/php-email-form/validate.js"></script>
+
+            <!-- Template Main JS File -->
+            <script src="aht_elearning_pro/static/src/js/main.js"></script>
+            <div class="cd-popup contact" role="alert">
+                <form name="contactform" class="contact-form" method="POST" action="/registered">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <div class="cd-popup-container" style="">
+                        <p style="">
+                            <a href="" class="cd-popup-close cd-close-button">
+                                <i class="fa fa-times" style="pointer-events:none;"></i>
+                            </a>
+                        </p>
+                        <div class="form-text">
+                            <h5>Become a Instructor</h5>
+                            <p>Discover a supportive community of online instructors. Get instant access to all course
+                                creation
+                                resources.
+                            </p>
+                        </div>
+
+                        <div class="name" style="border-bottom:1px solid rgb(118, 118, 118, 0.3);">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name"/>
+                        </div>
+                        <br/>
+                        <div class="email" style="border-bottom:1px solid rgb(118, 118, 118, 0.3);">
+                            <label for="email">Email</label>
+                            <input type="text" id="email" name="login"/>
+                        </div>
+
+                        <div class="email" style="border-bottom:1px solid rgb(118, 118, 118, 0.3);">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password"/>
+                        </div>
+                        <br/>
+                        <div class="submit">
+                            <input type="submit" id="submit" value="Sign Up"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+            <script src="aht_elearning_pro/static/src/js/teachers_registration.js"></script>
+        </body>
+    </template>
+</odoo>

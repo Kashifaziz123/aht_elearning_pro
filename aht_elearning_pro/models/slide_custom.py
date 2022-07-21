@@ -7,6 +7,22 @@ class slideCustomChannel(models.Model):
     preview_video = fields.Binary("Preview Video")
     preview_video_url = fields.Char("Preview URL")
     computed_url = fields.Char("Computed URL")
+    state = fields.Selection([('draft','Draft'),('pending_approval','Pending Approval'),('approved','Approved'),('rejected','Rejected')], default="draft")
+
+    def approve_request(self):
+        self.state = 'approved'
+
+    def reject_request(self):
+        self.state = 'rejected'
+
+    def send_request(self):
+        self.state = 'pending_approval'
+
+    def course_published(self):
+        self.is_published = True
+
+    def course_unpublished(self):
+        self.is_published = False
 
     @api.onchange("preview_video_url")
     def url_computation(self):

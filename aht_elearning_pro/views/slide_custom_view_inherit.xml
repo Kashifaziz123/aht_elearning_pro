@@ -1,18 +1,53 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-<record id="view_slide_channel_form_inherit" model="ir.ui.view">
+    <record id="view_slide_channel_form_inherit" model="ir.ui.view">
         <field name="name">slide.slide.form.inherit.type</field>
         <field name="model">slide.channel</field>
         <field name="inherit_id" ref="website_slides.view_slide_channel_form"/>
         <field name="arch" type="xml">
+            <header>
+                <field name="state" widget="statusbar"></field>
+                <button name="send_request" type="object" class="oe_highlight" string="Send Approval Request"
+                        attrs="{'invisible': [('state','!=', 'draft')]}"/>
+                <button name="course_published" type="object" class="oe_highlight" string="Publish"
+                        attrs="{'invisible': ['|',('is_published','=', True),('state','!=', 'approved')]}"/>
+                <button name="course_unpublished" type="object" class="oe_highlight" string="Un Publish"
+                        attrs="{'invisible': ['|',('is_published','=', False),('state','!=','approved')]}"/>
+
+            </header>
             <field name="tag_ids" position="after">
                 <br/>
                 <label for="preview_video" invisible="1"/>
                 <field name="preview_video" invisible="1"/>
-                <label for="preview_video_url" />
+                <label for="preview_video_url"/>
                 <field name="preview_video_url"/>
                 <field name="computed_url" force_save="1" invisible="1"/>
             </field>
         </field>
-</record>
+    </record>
+    <record id="view_slide_channel_form_inherit_for_unapproved_courses" model="ir.ui.view">
+        <field name="name">view.slide.channel.form.inherit.for.unapproved.courses</field>
+        <field name="model">slide.channel</field>
+        <field name="inherit_id" ref="website_slides.view_slide_channel_form"/>
+        <field name="arch" type="xml">
+            <header>
+                <button name="approve_request" type="object" class="oe_highlight" string="Approve Request"
+                        attrs="{'invisible': [('state','!=', 'pending_approval')]}" groups="base.group_system"/>
+                <button name="reject_request" type="object" class="oe_highlight" string="Reject Request"
+                        attrs="{'invisible': [('state','!=', 'pending_approval')]}" groups="base.group_system"/>
+            </header>
+        </field>
+    </record>
+    <record id="unapproved_courses_action" model="ir.actions.act_window">
+        <field name="name">Unapproved Courses</field>
+        <field name="res_model">slide.channel</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('state','=','pending_approval')]</field>
+    </record>
+
+    <menuitem name="Unapproved Courses"
+              parent="website_slides.website_slides_menu_root"
+              id="unapproved_courses_menu_item"
+              action="aht_elearning_pro.unapproved_courses_action"
+              sequence="4"/>
 </odoo>

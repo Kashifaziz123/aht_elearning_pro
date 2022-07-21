@@ -1,0 +1,16 @@
+<!--<?xml version="1.0" encoding="UTF-8" ?>-->
+<odoo>
+
+    <record id="instructor_action" model="ir.actions.act_window">
+        <field name="name">Instructor</field>
+        <field name="res_model">res.users</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('group_ids','=',True)]</field>
+    </record>
+
+    <menuitem name="Instructor"
+              parent="website_slides.website_slides_menu_root"
+              id="instructor_menu_item"
+              action="aht_elearning_pro.instructor_action"
+              sequence="4"/>
+</odoo>
